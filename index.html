@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zeynep — Магазин женской одежды</title>
+  <meta name="description" content="Zeynep — стильная женская одежда. Платья, костюмы, аксессуары и новые коллекции." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fffaf8;
+      color: #2f2a28;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #f0e4df;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #b66f7c;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 16px;
+      color: #4a3d39;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #b66f7c;
+    }
+
+    .menu-btn {
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #fdf0ec, #f9e0e8);
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #3a2f2c;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 28px;
+      color: #5d504c;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #b66f7c;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #9d5967;
+    }
+
+    .btn-secondary {
+      border: 2px solid #b66f7c;
+      color: #b66f7c;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: #b66f7c;
+      color: #fff;
+    }
+
+    .hero-image {
+      background: linear-gradient(160deg, #f7ccd4, #fbe8dc);
+      border-radius: 30px;
+      min-height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      padding: 20px;
+    }
+
+    .hero-image-box {
+      text-align: center;
+      color: #7b4d56;
+    }
+
+    .hero-image-box h2 {
+      font-size: 44px;
+      margin-bottom: 10px;
+    }
+
+    .hero-image-box p {
+      font-size: 18px;
+    }
+
+    /* Section Title */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: #3a2f2c;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b5d58;
+      font-size: 17px;
+    }
+
+    /* Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 35px rgba(0,0,0,0.10);
+    }
+
+    .product-image {
+      height: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 56px;
+      background: linear-gradient(145deg, #fbe6e1, #f7d8df);
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-info h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #3d302d;
+    }
+
+    .product-info p {
+      color: #6b5d58;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: #b66f7c;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .product-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #3a2f2c;
+      color: #fff;
+      border-radius: 999px;
+      transition: 0.3s;
+    }
+
+    .product-btn:hover {
+      background: #b66f7c;
+    }
+
+    /* About */
+    .about {
+      background: #fff1ed;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+    }
+
+    .about-box h3 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #3a2f2c;
+    }
+
+    .about-box p {
+      color: #5f514d;
+      margin-bottom: 14px;
+      font-size: 16px;
+    }
+
+    .about-visual {
+      min-height: 350px;
+      border-radius: 24px;
+      background: linear-gradient(160deg, #f8d9d7, #fdebdc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b5964;
+      font-size: 34px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-size: 30px;
+      margin-bottom: 16px;
+      color: #3a2f2c;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+      color: #625551;
+      font-size: 17px;
+    }
+
+    .contact-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      background: #b66f7c;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 999px;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #9f5a68;
+    }
+
+    /* Footer */
+    footer {
+      background: #2f2523;
+      color: #f8e9e3;
+      text-align: center;
+      padding: 24px 15px;
+      margin-top: 30px;
+    }
+
+    footer p {
+      font-size: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-content,
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .hero-text h1 {
+        font-size: 34px;
+      }
+
+      .hero-image {
+        min-height: 320px;
+      }
+
+      .hero-image-box h2 {
+        font-size: 34px;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-box,
+      .contact-box {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">Zeynep</div>
+      <ul class="nav-links">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">О магазине</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1>Женская одежда, в которой хочется быть собой</h1>
+        <p>
+          Добро пожаловать в <strong>Zeynep</strong> — магазин стильной женской одежды,
+          где сочетаются элегантность, комфорт и современный вкус.
+        </p>
+        <div class="hero-buttons">
+          <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
+          <a href="#contact" class="btn btn-secondary">Связаться</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-image-box">
+          <h2>Zeynep</h2>
+          <p>Новая коллекция сезона</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section-title">
+        <h2>Популярные модели</h2>
+        <p>Выберите образ, который подчеркнет ваш стиль</p>
+      </div>
+
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">👗</div>
+          <div class="product-info">
+            <h3>Нежное платье</h3>
+            <p>Легкое платье для прогулок, встреч и особых дней.</p>
+            <span class="price">3 500 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">👜</div>
+          <div class="product-info">
+            <h3>Стильная сумка</h3>
+            <p>Элегантный аксессуар, который дополнит любой образ.</p>
+            <span class="price">2 200 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">👠</div>
+          <div class="product-info">
+            <h3>Классические туфли</h3>
+            <p>Женственные туфли для уверенного и изящного шага.</p>
+            <span class="price">4 100 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🧥</div>
+          <div class="product-info">
+            <h3>Осенний жакет</h3>
+            <p>Идеальный вариант для стильных повседневных образов.</p>
+            <span class="price">5 300 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">👚</div>
+          <div class="product-info">
+            <h3>Блуза Premium</h3>
+            <p>Универсальная блуза для офиса, учебы и мероприятий.</p>
+            <span class="price">2 800 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">🧣</div>
+          <div class="product-info">
+            <h3>Шелковый аксессуар</h3>
+            <p>Небольшая деталь, которая делает образ завершенным.</p>
+            <span class="price">1 200 сом</span>
+            <a href="#contact" class="product-btn">Заказать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="container about-content">
+      <div class="about-box">
+        <h3>О магазине Zeynep</h3>
+        <p>
+          Мы создаем пространство для женщин, которые ценят стиль,
+          качество и уверенность в себе.
+        </p>
+        <p>
+          В нашем ассортименте — платья, блузы, жакеты, обувь и аксессуары,
+          подобранные с вниманием к деталям.
+        </p>
+        <p>
+          Zeynep — это не просто одежда. Это настроение, женственность
+          и современный образ жизни.
+        </p>
+      </div>
+      <div class="about-visual">
+        Zeynep<br />
+        Fashion & Elegance
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами для заказа и консультации</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>Zeynep</h3>
+        <p><strong>Instagram:</strong> @zeynep.shop</p>
+        <p><strong>WhatsApp:</strong> +996 700 000 000</p>
+        <p><strong>Email:</strong> zeynep.shop@example.com</p>
+        <p><strong>Адрес:</strong> Бишкек, Кыргызстан</p>
+
+        <div class="contact-links">
+          <a href="https://instagram.com" target="_blank">Instagram</a>
+          <a href="https://wa.me/996700000000" target="_blank">WhatsApp</a>
+          <a href="mailto:zeynep.shop@example.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Zeynep. Все права защищены.</p>
+  </footer>
+
+</body>
+</html>
