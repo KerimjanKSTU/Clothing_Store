@@ -58,9 +58,9 @@
     header{
       position:sticky;
       top:0;
-      z-index:10;
+      z-index:20;
       backdrop-filter:blur(12px);
-      background:rgba(255, 249, 250, 0.82);
+      background:rgba(255, 249, 250, 0.88);
       border-bottom:1px solid rgba(216,111,142,0.12);
     }
 
@@ -98,7 +98,7 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr 0.9fr;
+      grid-template-columns:1.08fr 0.92fr;
       gap:28px;
       align-items:center;
     }
@@ -169,7 +169,7 @@
       border-radius:32px;
       box-shadow:var(--shadow);
       overflow:hidden;
-      min-height:520px;
+      min-height:540px;
       position:relative;
     }
 
@@ -184,7 +184,7 @@
       left:18px;
       bottom:18px;
       padding:14px 16px;
-      background:rgba(255,255,255,0.88);
+      background:rgba(255,255,255,0.9);
       backdrop-filter:blur(8px);
       border-radius:18px;
       color:var(--accent-dark);
@@ -236,7 +236,7 @@
     }
 
     .card-image{
-      height:360px;
+      height:370px;
       overflow:hidden;
       background:#fceff3;
     }
@@ -257,8 +257,9 @@
     }
 
     .card-body h3{
-      font-size:1.15rem;
+      font-size:1.12rem;
       margin-bottom:6px;
+      color:var(--accent-dark);
     }
 
     .card-body p{
@@ -338,27 +339,89 @@
       font-weight:700;
     }
 
-    .banner{
+    .contact-section{
+      margin-top:10px;
+    }
+
+    .contact-box{
       background:linear-gradient(135deg, #fff 0%, #ffe9ef 100%);
       border:1px solid rgba(216,111,142,0.16);
       border-radius:32px;
       padding:30px;
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:18px;
-      align-items:center;
       box-shadow:var(--shadow);
     }
 
-    .banner h3{
+    .contact-box h3{
       font-family:"Playfair Display", serif;
       font-size:2rem;
-      margin-bottom:8px;
+      margin-bottom:10px;
+      color:var(--accent-dark);
     }
 
-    .banner p{
+    .contact-box p{
       color:var(--muted);
+      margin-bottom:22px;
       max-width:720px;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:16px;
+    }
+
+    .contact-item{
+      background:#fff;
+      border:1px solid rgba(216,111,142,0.12);
+      border-radius:20px;
+      padding:18px;
+    }
+
+    .contact-item span{
+      display:block;
+      font-size:0.9rem;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .contact-item a,
+    .contact-item strong{
+      color:var(--accent-dark);
+      font-weight:700;
+      word-break:break-word;
+    }
+
+    .contact-corner{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:30;
+      width:280px;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(216,111,142,0.18);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:0 18px 45px rgba(185,80,114,0.18);
+    }
+
+    .contact-corner h4{
+      font-size:1rem;
+      margin-bottom:10px;
+      color:var(--accent-dark);
+    }
+
+    .contact-corner ul{
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color:var(--text);
+      font-size:0.94rem;
+    }
+
+    .contact-corner li a{
+      color:var(--accent-dark);
+      font-weight:600;
     }
 
     footer{
@@ -372,12 +435,16 @@
       .hero-grid,
       .catalog-grid,
       .video-grid,
-      .banner{
+      .contact-grid{
         grid-template-columns:1fr;
       }
 
       .hero-image{
         min-height:420px;
+      }
+
+      .contact-corner{
+        width:230px;
       }
     }
 
@@ -403,12 +470,19 @@
         font-size:1.9rem;
       }
 
-      .banner{
+      .contact-box{
         padding:22px;
       }
 
-      .banner h3{
+      .contact-box h3{
         font-size:1.6rem;
+      }
+
+      .contact-corner{
+        left:12px;
+        right:12px;
+        bottom:12px;
+        width:auto;
       }
     }
   </style>
@@ -421,7 +495,7 @@
       <nav class="nav-links">
         <a href="#catalog">Каталог</a>
         <a href="#videos">Видео</a>
-        <a href="#about">О магазине</a>
+        <a href="#contacts">Контакты</a>
       </nav>
     </div>
   </header>
@@ -430,21 +504,21 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <span class="badge">Женская одежда • Стиль • Нежность</span>
-          <h1>Красивые образы для каждого дня</h1>
+          <span class="badge">Женская одежда • Элегантность • Стиль</span>
+          <h1>Красивые женские образы для любого настроения</h1>
           <p>
-            Добро пожаловать в <strong>Zeynep</strong> — онлайн-магазин женской одежды,
-            где собраны нежные, элегантные и современные образы. Выбирайте платья,
-            костюмы и стильные комплекты для прогулки, праздника и особенных моментов.
+            Добро пожаловать в <strong>Zeynep</strong> — стильный онлайн-магазин женской одежды.
+            Здесь собраны нежные, элегантные и современные образы для прогулок, праздников,
+            работы и повседневной жизни.
           </p>
           <div class="hero-actions">
             <a href="#catalog" class="btn btn-primary">Смотреть каталог</a>
-            <a href="#videos" class="btn btn-secondary">Открыть видео</a>
+            <a href="#contacts" class="btn btn-secondary">Связаться с нами</a>
           </div>
         </div>
 
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Модный женский образ">
+          <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80" alt="Главный образ магазина Zeynep">
           <div class="hero-label">Новая коллекция Zeynep</div>
         </div>
       </div>
@@ -455,18 +529,21 @@
         <div class="section-head">
           <div>
             <h2>Каталог</h2>
-            <p>В каталоге добавлено 6 красивых фотографий с примерами женской одежды.</p>
+            <p>
+              Я сделала названия карточек более универсальными и подходящими под фото:
+              теперь это не случайные подписи, а реальные описания стиля образов.
+            </p>
           </div>
         </div>
 
         <div class="catalog-grid">
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="Нежное платье">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80" alt="Городской женственный образ">
             </div>
             <div class="card-body">
-              <h3>Нежное платье</h3>
-              <p>Лёгкий и женственный образ для прогулок, встреч и красивых фото.</p>
+              <h3>Городской женственный образ</h3>
+              <p>Стильный и аккуратный вариант для прогулок по городу и встреч.</p>
               <div class="price-row">
                 <span class="price">3 900 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -476,11 +553,11 @@
 
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80" alt="Вечернее платье">
+              <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1000&q=80" alt="Элегантный вечерний стиль">
             </div>
             <div class="card-body">
-              <h3>Вечернее платье</h3>
-              <p>Элегантный вариант для торжеств, ужина, праздников и особых случаев.</p>
+              <h3>Элегантный вечерний стиль</h3>
+              <p>Красивый образ для торжеств, ужина, мероприятий и особого случая.</p>
               <div class="price-row">
                 <span class="price">5 800 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -490,11 +567,11 @@
 
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80" alt="Летний образ">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=80" alt="Легкий повседневный look">
             </div>
             <div class="card-body">
-              <h3>Летний образ</h3>
-              <p>Свежий комплект для тёплых дней, прогулок по городу и отдыха.</p>
+              <h3>Легкий повседневный look</h3>
+              <p>Свежий образ на каждый день для комфортной и красивой повседневности.</p>
               <div class="price-row">
                 <span class="price">4 200 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -504,11 +581,11 @@
 
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80" alt="Классический костюм">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1000&q=80" alt="Классический деловой образ">
             </div>
             <div class="card-body">
-              <h3>Классический костюм</h3>
-              <p>Стильный и уверенный образ для работы, встреч и делового настроения.</p>
+              <h3>Классический деловой образ</h3>
+              <p>Элегантный стиль для работы, деловых встреч и уверенного настроения.</p>
               <div class="price-row">
                 <span class="price">6 300 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -518,11 +595,11 @@
 
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80" alt="Повседневный шик">
+              <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1000&q=80" alt="Комфортный городской стиль">
             </div>
             <div class="card-body">
-              <h3>Повседневный шик</h3>
-              <p>Комфортный городской вариант, который выглядит аккуратно и красиво.</p>
+              <h3>Комфортный городской стиль</h3>
+              <p>Практичный образ для активного дня, прогулок и уютного шопинга.</p>
               <div class="price-row">
                 <span class="price">3 700 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -532,11 +609,11 @@
 
           <article class="card">
             <div class="card-image">
-              <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=80" alt="Праздничное платье">
+              <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1000&q=80" alt="Праздничный женский образ">
             </div>
             <div class="card-body">
-              <h3>Праздничное платье</h3>
-              <p>Яркий образ для мероприятий, фотосессий и красивого выхода в свет.</p>
+              <h3>Праздничный женский образ</h3>
+              <p>Яркий и заметный вариант для фотосессий, событий и красивого выхода.</p>
               <div class="price-row">
                 <span class="price">6 900 сом</span>
                 <a href="#" class="mini-btn">Подробнее</a>
@@ -552,7 +629,7 @@
         <div class="section-head">
           <div>
             <h2>Видео</h2>
-            <p>Здесь добавлены все твои ссылки YouTube и Shorts прямо в сайт.</p>
+            <p>Здесь добавлены все твои YouTube-ссылки в красивом блоке сайта.</p>
           </div>
         </div>
 
@@ -611,37 +688,64 @@
               <a class="video-link" href="https://youtube.com/shorts/VMhOljvCPvo?si=UvDIzkAXxBH9Eemn" target="_blank">Открыть Shorts</a>
             </div>
           </article>
-
-          <article class="video-card">
-            <div class="video-frame">
-              <iframe src="https://www.youtube.com/embed/gdNN6PNqTNA" title="Featured video" allowfullscreen></iframe>
-            </div>
-            <div class="video-body">
-              <h3>Избранное видео</h3>
-              <p>Дополнительная карточка для красивого заполнения блока видео на сайте.</p>
-              <a class="video-link" href="https://youtu.be/gdNN6PNqTNA?si=MqlUrGskFdESg3Z1" target="_blank">Смотреть</a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="contacts" class="contact-section">
       <div class="container">
-        <div class="banner">
-          <div>
-            <h3>Zeynep — стиль, красота и нежность</h3>
-            <p>
-              Этот сайт подготовлен как готовый одностраничный проект для GitHub.
-              Внутри уже есть красивый каталог на 6 фотографий и блок с YouTube-видео.
-              Можно сразу загружать в репозиторий как <strong>index.html</strong>.
-            </p>
+        <div class="contact-box">
+          <h3>Контакты</h3>
+          <p>
+            Если хочешь заказать одежду, уточнить размеры или узнать наличие —
+            свяжись с нами любым удобным способом.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <span>Email</span>
+              <a href="mailto:zeynep.shop@gmail.com">zeynep.shop@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <span>Телефон</span>
+              <a href="tel:+996999120810">+996 999 12 08 10</a>
+            </div>
+
+            <div class="contact-item">
+              <span>Instagram</span>
+              <a href="https://instagram.com/zeynep.shop" target="_blank">@zeynep.shop</a>
+            </div>
+
+            <div class="contact-item">
+              <span>WhatsApp</span>
+              <a href="https://wa.me/996999120810" target="_blank">Написать в WhatsApp</a>
+            </div>
+
+            <div class="contact-item">
+              <span>Адрес</span>
+              <strong>Бишкек, Кыргызстан</strong>
+            </div>
+
+            <div class="contact-item">
+              <span>Время работы</span>
+              <strong>Ежедневно: 10:00 – 20:00</strong>
+            </div>
           </div>
-          <a href="#catalog" class="btn btn-primary">Перейти в каталог</a>
         </div>
       </div>
     </section>
   </main>
+
+  <div class="contact-corner">
+    <h4>Уголок контактов</h4>
+    <ul>
+      <li>📞 <a href="tel:+996999120810">+996 999 12 08 10</a></li>
+      <li>✉️ <a href="mailto:zeynep.shop@gmail.com">zeynep.shop@gmail.com</a></li>
+      <li>📷 <a href="https://instagram.com/zeynep.shop" target="_blank">@zeynep.shop</a></li>
+      <li>💬 <a href="https://wa.me/996999120810" target="_blank">WhatsApp</a></li>
+    </ul>
+  </div>
 
   <footer>
     <div class="container">
